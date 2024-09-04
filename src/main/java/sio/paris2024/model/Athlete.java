@@ -14,7 +14,7 @@ public class Athlete {
     private String nom ;
     private Pays pays ;
     private Prenom string ;
-    private DateNess localDate ;
+    private DateNaiss localDate ;
     public Athlete() {
     }
 
@@ -55,11 +55,11 @@ public class Athlete {
         this.string = string;
     }
 
-    public DateNess getLocalDate() {
+    public DateNaiss getLocalDate() {
         return localDate;
     }
 
-    public void setLocalDate(DateNess localDate) {
+    public void setLocalDate(DateNaiss localDate) {
         this.localDate = localDate;
     }
     
