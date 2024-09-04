@@ -13,6 +13,8 @@ public class Athlete {
     private int id;
     private String nom ;
     private Pays pays ;
+    private Prenom string ;
+    private DateNess localDate ;
     public Athlete() {
     }
 
@@ -43,6 +45,22 @@ public class Athlete {
 
     public void setPays(Pays pays) {
         this.pays = pays;
+    }
+
+    public Prenom getString() {
+        return string;
+    }
+
+    public void setString(Prenom string) {
+        this.string = string;
+    }
+
+    public DateNess getLocalDate() {
+        return localDate;
+    }
+
+    public void setLocalDate(DateNess localDate) {
+        this.localDate = localDate;
     }
     
     
