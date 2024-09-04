@@ -69,6 +69,14 @@
                                 out.println("<td>");
                                 out.println(a.getPays().getNom());
                                 out.println("</td>");
+                                
+                                out.println("<td>");
+                                out.println(a.getPrenom);
+                                out.println("</td>");
+                                
+                                out.println("<td>");
+                                out.println(a.getDateNaiss;
+                                out.println("</td>");
                                
                             }
                         %>
