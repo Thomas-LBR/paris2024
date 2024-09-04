@@ -4,6 +4,8 @@
  */
 package sio.paris2024.model;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author zakina
@@ -13,12 +15,13 @@ public class Athlete {
     private int id;
     private String nom ;
     private Pays pays ;
-    private Prenom string ;
-    private DateNaiss localDate ;
+    private String Prenom  ;
+    private LocalDate DateNaiss  ;
+    
     public Athlete() {
     }
 
-    public Athlete(int id, String nom) {
+    public Athlete(int id, String nom, String Prenom, LocalDate DateNaiss ) {
         this.id = id;
         this.nom = nom;
     }
@@ -47,21 +50,20 @@ public class Athlete {
         this.pays = pays;
     }
 
-    public Prenom getString() {
-        return string;
+    public String getPrenom() {
+        return Prenom;
     }
 
-    public void setString(Prenom string) {
-        this.string = string;
+    public LocalDate getDateNaiss() {
+        return DateNaiss;
     }
 
-    public DateNaiss getLocalDate() {
-        return localDate;
+    public void setPrenom(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public void setLocalDate(DateNaiss localDate) {
-        this.localDate = localDate;
+    public void setDateNaiss(LocalDate toLocalDate) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
     
 }
