@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
     
     <listener>
         <listener-class>sio.paris2024.database.InitConnexion</listener-class>
@@ -10,6 +12,12 @@
         <servlet-name>ServletAthlete</servlet-name>
         <servlet-class>sio.paris2024.servlet.ServletAthlete</servlet-class>
     </servlet>
+
+    <servlet>
+        <servlet-name>ServletSport</servlet-name>
+        <servlet-class>sio.paris2024.servlet.ServletSport</servlet-class>
+    </servlet>
+    
     <servlet-mapping>
         <servlet-name>ServletAthlete</servlet-name>
         <url-pattern>/ServletAthlete/lister</url-pattern>
@@ -21,7 +29,12 @@
     <servlet-mapping>
         <servlet-name>ServletAthlete</servlet-name>
         <url-pattern>/ServletAthlete/ajouter</url-pattern>
+    </servlet-mapping>   
+    <servlet-mapping>
+        <servlet-name>ServletSport</servlet-name>
+        <url-pattern>/ServletSport/lister</url-pattern>
     </servlet-mapping>
+
     <session-config>
         <session-timeout>
             30
