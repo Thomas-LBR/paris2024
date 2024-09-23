@@ -6,8 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import sio.paris2024.model.Athlete;
 import sio.paris2024.model.Pays;
+import sio.paris2024.model.Sport;
 
 public class DaoAthlete {
 
@@ -121,5 +123,60 @@ public class DaoAthlete {
             }
         }
         return ath;
+    }
+    
+      public static ArrayList<Athlete> getAthletesBySport(Connection cnx, int idSport) {
+        ArrayList<Athlete> athletes = new ArrayList<>();
+        PreparedStatement requeteSql = null;
+        ResultSet resultatRequete = null;
+        
+        try {
+            // Préparer la requête SQL pour récupérer les athlètes en fonction du sport
+            requeteSql = cnx.prepareStatement(
+                "SELECT a.id as a_id, a.nom as a_nom, a.prenom as a_prenom, a.datenaiss as a_datenaiss, p.id as p_id, p.nom as p_nom " +
+                "FROM athlete a " +
+                "JOIN sport s ON a.sport_id = s.id " +
+                "JOIN pays p ON a.pays_id = p.id " +
+                "WHERE s.id = ?"
+            );
+            // Assigner le nom du sport au paramètre de la requête
+            requeteSql.setInt(1, idSport);
+            
+            // Exécuter la requête
+            resultatRequete = requeteSql.executeQuery();
+            
+            // Parcourir les résultats et ajouter les athlètes à la liste
+            while (resultatRequete.next()) {
+                Athlete athlete = new Athlete();
+                athlete.setId(resultatRequete.getInt("a_id"));
+                athlete.setNom(resultatRequete.getString("a_nom"));
+                athlete.setPrenom(resultatRequete.getString("a_prenom"));
+                
+                Date date = resultatRequete.getDate("a_datenaiss");
+                athlete.setDateNaiss(date.toLocalDate());
+                
+                Pays unpays = new Pays();
+                unpays.setId(resultatRequete.getInt("p_id"));
+                unpays.setNom(resultatRequete.getString("p_nom"));
+                
+                athlete.setPays(unpays);
+                // Ajouter l'athlète à la liste des athlètes
+                athletes.add(athlete);
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Fermeture des ressources pour éviter les fuites de mémoire
+            try {
+                if (resultatRequete != null) resultatRequete.close();
+                if (requeteSql != null) requeteSql.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        // Retourner la liste des athlètes
+        return athletes;
     }
 }
