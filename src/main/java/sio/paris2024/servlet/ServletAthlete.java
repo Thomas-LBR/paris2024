@@ -151,18 +151,11 @@ public class ServletAthlete extends HttpServlet {
         }
         else
         { 
-            // il y a des erreurs. On réaffiche le formulaire avec des messages d'erreurs
-            ArrayList<Pays> lesCasernes = DaoPays.getLesPays(cnx);
-            request.setAttribute("pLesPays", lesCasernes);
+            ArrayList<Pays> lesPays = DaoPays.getLesPays(cnx);
+            request.setAttribute("pLesPays", lesPays);
             this.getServletContext().getRequestDispatcher("/vues/athlete/ajouterAthlete.jsp" ).forward( request, response );
         }
-        
-        
-        
-        
-        
-        
-        
+                  
     }
 
     /**
