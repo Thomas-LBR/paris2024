@@ -58,12 +58,17 @@ public class Athlete {
         return DateNaiss;
     }
 
-    public void setPrenom(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setPrenom(String Prenom) {
+        this.Prenom = Prenom;
     }
 
-    public void setDateNaiss(LocalDate toLocalDate) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setDateNaiss(LocalDate DateNaiss) {
+        this.DateNaiss = DateNaiss;
     }
+    
+    
+
+    
+   
     
 }
