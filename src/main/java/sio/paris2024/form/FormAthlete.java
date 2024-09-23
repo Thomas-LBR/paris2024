@@ -17,7 +17,7 @@ import sio.paris2024.model.Pays;
 public class FormAthlete {
     
     private String resultat;
-    private Map<String, String> erreurs      = new HashMap<String, String>();
+    private Map<String, String> erreurs = new HashMap<String, String>();
 
     public String getResultat() {
         return resultat;
